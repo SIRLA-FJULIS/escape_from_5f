@@ -6,6 +6,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+	<script src="./js/session.js"></script>
 </head>
 <body>
 <script>
@@ -17,17 +18,17 @@
     		show: function(arg) {
     			this.echo('\n-----------------------------------');
     		
-    			if(arg === 'look'){
-    				look_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 「look X」 為格式, 進行該動作。' +
-    					'\n例子: look 1 )');
-    			}
-    			else if(arg === 'move'){
+    			if(arg === 'move'){
     				move_menu.forEach(i => this.echo(i));
     				this.echo(
     					'\n(請以 「move X」 為格式, 進行該動作。' +
     					'\n例子: move 1 )');
+    			}
+    			else if(arg === 'action'){
+    				act_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「action X」 為格式, 進行該動作。' +
+    					'\n例子: action 1 )');
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
@@ -39,13 +40,47 @@
 				this.echo('\n-----------------------------------');
     		},
 
+			action: function(arg) {
+    			
+    			if(arg == 1){
+	    			if (key == 1){
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n[1]打開系辦" +
+							'\n用找到的鑰匙打開了大門後，你走了進去' +
+						    '\n光往前一照，突然發現在辦公桌後方有著類似人的形狀，讓你嚇了一跳。' +
+						    '\n仔細一看…那是兩個用紙做的人形，呈現一種正襟危坐的樣子放在椅子上' +
+						    '\n原本應該是五官的部分分別寫著「童」、「靜」' +
+						    '\n「這是誰的惡作劇？」你不免皺眉思考' +
+						    '\n靠近辦公桌，發現電腦上似乎正開著網頁(一個題目)' +
+						    '\n192.168.43.159:8000/department_office/lins_index.html' +
+						    '\n此時你的手機一震' +
+						    '\n「What is your answer?」' +
+							'\n-----------------------------------------' );
+	    			}
+	    			else {
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n沒有該動作，請使用 「show action」 查看選項。" +
+							'\n-----------------------------------------' );
+	    			}
+	    		}
+	    		else{
+	    			this.echo('\n沒有該動作，請使用 「show action 查看選項。')
+
+	    		}
+
+    		},
+
     		move: function(arg) {
 				if (arg == 1){
 					this.echo(
 						'\n-----------------------------------------' +
-						'\n回到最初醒來的起點，周圍也沒看到什麼特別的。' +
-						'\n用手機照到廁所隔間的門，上頭赫然是大大的幾個字，寫著：「你以為…你…逃得掉嗎…」' +
+						'\n環視了一下，有一個佈告欄，佈告欄上似乎曾經貼著什麼。' +
+						'\n再看到旁邊的牆上寫著「你記得嗎？你是誰？」' +
+						'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
 						'\n-----------------------------------------');
+					//移動到走廊二
 					document.location.href="https://www.google.com";
 				}
 				else {
@@ -69,13 +104,18 @@
 		//-------------------data-------------------------//
 		var show_menu = [
 			"[move]"
+			"[action]"
 			];
 
+		var act_menu = [
+			"[1] 打開系辦"
+		];
 
 		var move_menu = [
 			"[1] 走廊II",
 		];
 
+		var key = Session.get(key);
 	</script>
 </body>
 </html>

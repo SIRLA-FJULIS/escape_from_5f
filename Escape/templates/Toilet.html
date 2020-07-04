@@ -4,14 +4,18 @@
 <meta charset="utf-8">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-<script src="./js/session.js"></script>
+<script type="text/javascript" src="./js/session.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
 <title>廁所</title>
 </head>
 <body>
 	<script>
 		$('body').terminal(
-		{
+		{	check:function(){
+			this.echo(
+				Session.dump()
+			)
+		},
 			show: function(arg) {
     			this.echo('\n-----------------------------------');
     		
@@ -113,7 +117,7 @@
 						'\n---' +
 						'\n--' +
 						'\n-'  );
-					document.location.href="corridor_i/";
+						parent.location.href="./corridor_i/";
 				}
 				else {
     				this.echo(

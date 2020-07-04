@@ -7,8 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Beginning),
     path('5A/',Five_A),
-    path('corridor_i',Corridor_I),
-    path('corridor_ii',Corridor_II),
-    path('department_office',Department_office),
-    path('toilet',Toilet),
+    path('corridor_i/',Corridor_I),
+    path('corridor_ii/',Corridor_II),
+    path('department_office/',Department_office),
+    path('toilet/',Toilet),
 ]

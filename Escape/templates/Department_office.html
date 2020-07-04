@@ -1,9 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>系辦 Department Office</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
 </head>
 <body>
-	<h1>this is CDepartment office</h1>
+<script>
+
+//------------DEMO------------------------------
+
+		$('body').terminal(
+		{
+    		show: function(arg) {
+    			this.echo('\n-----------------------------------');
+    		
+    			if(arg === 'look'){
+    				look_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「look X」 為格式, 進行該動作。' +
+    					'\n例子: look 1 )');
+    			}
+    			else if(arg === 'move'){
+    				move_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「move X」 為格式, 進行該動作。' +
+    					'\n例子: move 1 )');
+    			}
+    			else{
+    				show_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'請以 「show X」的格式去查看各項動作更多的選項' + 
+    					'\n例子: show action'
+					);
+				}
+				this.echo('\n-----------------------------------');
+    		},
+
+    		move: function(arg) {
+				if (arg == 1){
+					this.echo(
+						'\n-----------------------------------------' +
+						'\n回到最初醒來的起點，周圍也沒看到什麼特別的。' +
+						'\n用手機照到廁所隔間的門，上頭赫然是大大的幾個字，寫著：「你以為…你…逃得掉嗎…」' +
+						'\n-----------------------------------------');
+					document.location.href="https://www.google.com";
+				}
+				else {
+    				this.echo(
+						"\n-----------------------------------------" +
+						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						'\n-----------------------------------------' );
+    			}
+    		}
+    	},	
+		{
+    		greetings:
+    			'\n-----------------------------------------' +
+	    		'\n走到系辦門口，想試著推開，卻發現大門被鎖了起來' +
+			    '\n拿手機一照發現門口上似乎用了特殊的墨水，用光照射才會顯示文字' +
+			    '\n「回想當初，這是你的起點。」' +
+			    '\n-----------------------------------------'
+		}
+		);
+		
+		//-------------------data-------------------------//
+		var show_menu = [
+			"[move]"
+			];
+
+
+		var move_menu = [
+			"[1] 走廊II",
+		];
+
+	</script>
 </body>
 </html>

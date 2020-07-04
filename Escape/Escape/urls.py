@@ -6,9 +6,9 @@ from Escape_story.views import Beginning,Five_A,Toilet,Corridor_I,Corridor_II,De
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Beginning),
-    path('5A/',Five_A), ##NUE=
-    path('corridor_i/',Corridor_I),
-    path('corridor_ii/',Corridor_II),
-    path('department_office/',Department_office),
-    path('toilet/',Toilet),
+    path('NUE=/',Five_A), #NUE=
+    path('Y29ycmlkb3JfaQ==/',Corridor_I), #Y29ycmlkb3JfaQ==
+    path('Y29ycmlkb3JfaWk=/',Corridor_II), #Y29ycmlkb3JfaWk=
+    path('ZGVwYXJ0bWVudF9vZmZpY2U=/',Department_office), #ZGVwYXJ0bWVudF9vZmZpY2U=
+    path('dG9pbGV0/',Toilet), #dG9pbGV0
 ]

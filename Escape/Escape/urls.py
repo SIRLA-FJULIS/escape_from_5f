@@ -5,5 +5,5 @@ from Escape_story.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home),
+    path('index/', index),
 ]

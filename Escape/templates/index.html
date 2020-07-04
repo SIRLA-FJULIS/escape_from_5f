@@ -11,159 +11,159 @@
 	<script>
 
 //------------DEMO------------------------------
-		
+
 		$('body').terminal(
 		{
-    		start: async function () {
-    			this.echo(
-    				'-----------------------------------------' +
-				    '\n你睜開雙眼，' + 
-				    '\n眼前一片漆黑' +				     
-				    '\n四周沒有任何燈光，彷彿到了某個異空間一般' +
-				    '\n接下來，你要做什麼？' + '\n' +
-				    '\n[1] 行動' +
-				    '\n-----------------------------------------' +
-				    '\n\n (請輸入「1」來進行下一步)'
-			    );
+    		show: function(arg) {
+    			this.echo('\n-----------------------------------');
+    		
+    			if(arg === 'look'){
+    				look_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「look X」 為格式, 進行該動作。' +
+    					'\n例子: look 1 )');
+    			}
+    			else if(arg === 'move'){
+    				move_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「move X」 為格式, 進行該動作。' +
+    					'\n例子: move 1 )');
+    			}
+    			else if(arg === 'action'){
+    				act_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「action X」 為格式, 進行該動作。' +
+    					'\n例子: action 1 )');
+    			}
+    			else{
+    				show_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'請以 「show X」的格式去查看各項動作更多的選項' + 
+    					'\n例子: show action'
+					);
+				}
+				this.echo('\n-----------------------------------');
+    		},
 
-				this.read('> ').then(text => tutorial0(text));
-			
-			},
-    		continue: function (){
-    			what_to_do.forEach(i => this.echo(i));
-    			this.read('> ').then(text => choice(text));
-    		}
+    		action: function(arg) {
+    			
+    			if(flag_act == 0){
+	    			if (arg == 1){
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n[1]檢查自己身上持有的物品" +
+							'\n-----------------------------------------' );
+	    				flag_act = 1;
+	    			}
+	    			else {
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n沒有該動作，請使用 「show action」 查看選項。" +
+							'\n-----------------------------------------' );
+	    			}
+	    		}
+	    		else{
+	    			this.echo('\n目前沒有什麼動作可以進行。')
 
-    	},
-    	{
-    		greetings:
-    		'[終端機]' + '[新手教學][Demo] ' +
-    		'\n\n請輸入 「start」 來開始遊戲'
-		});
-		
-		//-------------------function----------------------//
-		var term = $('body').terminal();
-		
-		
-		async function tutorial0(text) {
-				if (text == 1){
-					term.echo(
-						"-----------------------------------------" +
-						"\n[1]檢查自己身上持有的物品\n" +
-						'-----------------------------------------' );
-					term.read('> ').then(text => tutorial1(text));
-			}
-		}
+	    		}
 
-		async function tutorial1(text) {
-				if (text == 1){
-					if (text == 1)
-							term.echo(
-							'\n-----------------------------------------' +
-							'\n你嘗試站起身來，'+							'摸索了一下自己，'+
-							'\n發現口袋中有自己的手機。' +
-							'\n接下來，你要做什麼？' +
-					    	'\n' +
-					    	'\n[2] 觀察' +
-					    	'\n-----------------------------------------');
-					term.read('> ').then(text => tutorial2(text));
-			}
-		}
+    		},
 
-		async function tutorial2(text){
-				 if(text == 2)
-						term.echo(
+    		look: function(arg) {
+    			if(flag_act == 0){
+    				this.echo('眼前一片漆黑，你什麼都看不到。');
+    			}
+    			else if(flag_look == 1){
+    				this.echo('感覺到一絲說不出的異樣，還是快點離開這地方吧。')
+				}
+				else{
+					if (arg == 1){
+						this.echo(
 							'\n-----------------------------------------' +
 							'\n你打開手機的手電筒一照，' +
 							'\n眼前是熟悉卻又陌生的場景。' + 
 					    	'\n你唯一可以理解到的事就是你正身處廁所。' +
-					    	'\n接下來，你要做什麼？' +
-				    		'\n' +
-					    	'\n[3] 移動' +
-					    	'\n-----------------------------------------' );
-					term.read('> ').then(text => tutorial3(text));
+					    	'\n-----------------------------------------');
+						flag_look = 1;
+					}
+					else {
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n沒有該動作，請使用 「show look」 查看選項。" +
+							'\n-----------------------------------------' );
+	    			}
+				}
+    		},
 
-		}
+    		move: function(arg) {
+				if(flag_act == 0){
+    				this.echo('眼前一片漆黑，你什麼都看不到。');
+    			}
+    			else if(flag_look == 0){
+    				this.echo('眼前一片漆黑，你什麼都看不到。');
+    			}
+    			else{
+    				if (arg == 1){
+						this.echo(
+							'\n-----------------------------------------' +
+							'\n是你正身處廁所，四周沒有任何燈光，彷彿到了某個異空間一般' +
+							'\n-----------------------------------------' +
+					    	'\n' +
+					    	'\n (恭喜你完成使用教學)');
+						document.location.href="https://www.google.com";
+					}
+					else {
+	    				this.echo(
+							"\n-----------------------------------------" +
+							"\n沒有該動作，請使用 「show look」 查看選項。" +
+							'\n-----------------------------------------' );
+	    			}
 
-		function tutorial3(text){
-			if(text == 3)
-				term.echo(
-					'\n-----------------------------------------' +
-					"\n[1] 走廊I" +
-					'\n-----------------------------------------' +
-			    	'\n');
-			term.read('> ').then(text => {
-				if (text == 1)
-					term.echo(
-						'\n-----------------------------------------' +
-						'\n你離開了廁所，往走廊的方向走去' +
-						'\n-----------------------------------------' +
-				    	'\n');
-			})
-		}
+    			}
 
-			/*term.read('> ').then(txt => {
-				if (txt == 2)
-					term.echo(
-						'\n你打開手機的手電筒一照，' +
-						'\n眼前是熟悉卻又陌生的場景。' + 
-				    	'\n你唯一可以理解到的事就是你正身處廁所。' +
-				    	'\n接下來，你要做什麼？' +
-			    		'\n' +
-				    	'\n[3] 移動');
-			});	*/
+    		}
 
-		function choice (text) {
-			if(text == 1)
-				term.echo('');
-				T_action.forEach(i => term.echo(i));
-				term.read('> ').then(text => action(text));
-			
-			/*else if (text == 2)
-				term.echo('b');
-			else if (text == 3)
-				term.echo('c');*/
-		}
-
-		function action (text_act) {
-			if(text_act == 1){
-				term.echo('');
-				term.echo('success');
-			}
-			else if (text == 2)
-				term.echo('b');
-			else if (text == 3)
-				term.echo('c');
-    	}
-
-    	function move (place) {
-
-    	}
-
-
-
-
+    	},	
+		{
+    		greetings:
+	    		'[終端機]' + '[Demo] ' +
+	    		'\n-----------------------------------------' +
+			    '\n你睜開雙眼，' + 
+			    '\n眼前一片漆黑' +				     
+			    '\n四周沒有任何燈光，彷彿到了某個異空間一般' +
+			    '\n接下來，你要做什麼？' + '\n' +
+			    '\n-----------------------------------------' +
+			    '\n\n (請輸入 「show all」 來查看可以使用的指令)'
+		}	    );
+		
 		//-------------------data-------------------------//
-		var what_to_do = [
-			"[1] 行動",
-			"[2] 觀察", 
-			"[3] 移動"
+		var show_menu = [
+			"[action]",
+			"[look]", 
+			"[move]"
 			];
 
-		var T_action = [
-			"[1] 檢查自己身上持有的物品",
-			];
+		var act_menu = [
+			"[1] 檢查自己身上持有的物品"
+		];
 
-		var Toliet_place = [
+		var look_menu = [
+			"[1]嘗試觀察四周"
+		];	
+
+		var move_menu = [
 			"[1] 走廊I"
 		];
+
+		
 
 
 
 
 
 		//-------------------flag------------------------//
-		var flag_begin_act = 0;
+		var flag_act = 0;
+		var flag_look = 0;
 		
 
 	

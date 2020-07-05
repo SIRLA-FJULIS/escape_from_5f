@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>走廊二 Corridor II</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+</head>
+<body>
+<script>
+
+//------------DEMO------------------------------
+
+		$('body').terminal(
+		{
+    		show: function(arg) {
+    			this.echo('\n-----------------------------------');
+    		
+    			if(arg === 'look'){
+    				look_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「look X」 為格式, 進行該動作。' +
+    					'\n例子: look 1 )');
+    			}
+    			else if(arg === 'move'){
+    				move_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「move X」 為格式, 進行該動作。' +
+    					'\n例子: move 1 )');
+    			}
+    			else{
+    				show_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'請以 「show X」的格式去查看各項動作更多的選項' + 
+    					'\n例子: show action'
+					);
+				}
+				this.echo('\n-----------------------------------');
+    		},
+
+    		look: function(arg) {
+				if (arg == 1){
+					this.echo(
+						'\n-----------------------------------------' +
+				    	'\n(佈告欄 Billboard)' +
+						'\n走到佈告欄前，發現上頭有幾張已經被撕得不成形的紙，剩下的訊息似乎寫著什麼。' +
+						'\n「…門…線索…」'+
+						'\n「解碼…ANS{}…格式…」' +
+				    	'\n-----------------------------------------');
+				}
+				    if (id_card == false){
+    					this.echo(
+							'\n-----------------------------------------' +
+							'\n「ANS{5+ud3n+_!D}…」' +
+							'\n仔細一看，佈告欄的角落貌似還有著一張學生證，但是上頭的照片相當的模糊，' +
+							'\n彷彿被人刻意的抹掉一般。' +
+							'\n你伸手嘗試將它拿起來，卻發現沒有辦法，明明沒有任何工具或黏著劑，卻好像' +
+							'\n被鑲嵌在上頭似的絲毫不動。' +
+							'\n這時手機突然響了起來，跳出了一個要求輸入的畫面。' +
+							'\n「What is your answer?」' +
+							'\n...'+
+							'\n-----------------------------------------' );
+    			}
+						if (flag == true){
+							this.echo(
+								'\n-----------------------------------------' +
+								'\n「啪」的一聲，學生證不再黏在佈告欄上，直直地掉落到地板上。' +
+								'\n你撿起了學生證，上頭本來應該呈現名字的地方印著：▩▩▩。' +
+								'\n「這到底是誰的學生證？為何看不見名字？」你疑惑著。' +
+							    '\n-----------------------------------------');
+						} 
+						else{
+							this.echo(
+								'\n手機瞬間暗屏，接著彷彿血一般紅色慢慢地蔓延整個螢幕。' +
+								'\n在螢幕的中央緩緩地浮現出了幾個字。' +
+								'\n「你…答錯了…呵呵呵…」');
+						}
+    		},
+
+    		move: function(arg) {
+				if (arg == 2){
+					this.echo(
+						'\n-----------------------------------------' +
+						'\n回到最初醒來的起點，周圍也沒看到什麼特別的。' +
+						'\n用手機照到廁所隔間的門，上頭赫然是大大的幾個字，寫著：「你以為…你…逃得掉嗎…」' +
+						'\n-----------------------------------------');
+					
+					window.setTimeout(function(){
+        					// Move to a new location or you can do something else
+       						document.location.href="../dG9pbGV0/"; 
+    					}, 5000);
+				}
+				else if(arg == 1){
+					this.echo(
+						'\n-----------------------------------------' +
+						'\n環視了一下，有一個佈告欄，佈告欄上似乎曾經貼著什麼。' +
+						'\n再看到旁邊的牆上寫著「你記得嗎？你是誰？」' +
+						'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
+						'\n-----------------------------------------');
+					
+					window.setTimeout(function(){
+        					// Move to a new location or you can do something else
+       						document.location.href="../Y29ycmlkb3JfaWk=/"; 
+    					}, 5000);
+				}
+				else {
+    				this.echo(
+						"\n-----------------------------------------" +
+						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						'\n-----------------------------------------' );
+    			}
+    		},
+    	},	
+		{
+    		greetings:
+    			'\n-----------------------------------------' +
+	    		'\n環視了一下，有一個佈告欄，佈告欄上似乎曾經貼著什麼。' +
+			    '\n再看到旁邊的牆上寫著「你記得嗎？你是誰？」' +
+				'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
+			    '\n-----------------------------------------'
+		}
+		);
+		
+		//-------------------data-------------------------//
+		var show_menu = [
+			"[look]", 
+			"[move]",
+			];
+
+		var look_menu = [
+			"[1] 佈告欄"
+		];	
+
+		var move_menu = [
+			"[1] 走廊 I",
+			"[2] 走廊 III",
+			"[3] 5A",
+			"[4] 系辦"
+		];
+		
+		var id_card = false;
+		var flag = true;
+	</script>
+</body>
+</html>

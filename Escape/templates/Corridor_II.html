@@ -6,11 +6,16 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+	<script src="./js/session.js"></script>
 </head>
 <body>
 <script>
 
 //------------DEMO------------------------------
+		var id_card = Session.get(id_card);
+		var flag = Session.get(flag);
+		var key = Session.get(key);
+
 
 		$('body').terminal(
 		{
@@ -46,12 +51,12 @@
 				else if (arg == 2){
 					this.echo(
 						'\n-----------------------------------------' +
-				    	'\n(佈告欄 Billboard)' +
+				    	'\n佈告欄 Billboard' +
 						'\n走到佈告欄前，發現上頭有幾張已經被撕得不成形的紙，剩下的訊息似乎寫著什麼。' +
 						'\n「…門…線索…」'+
 						'\n「解碼…ANS{}…格式…」' +
 				    	'\n-----------------------------------------');
-					
+
 					if (id_card == false){
     					this.echo(
 							'\n-----------------------------------------' +
@@ -65,7 +70,7 @@
 							'\n...'+
 							'\n-----------------------------------------' );
     				}
-					if (flag == true){
+					else if (flag == true){
 						this.echo(
 							'\n-----------------------------------------' +
 							'\n「啪」的一聲，學生證不再黏在佈告欄上，直直地掉落到地板上。' +
@@ -129,10 +134,6 @@
 		var act_menu = [
 			"目前沒有什麼動作可以執行。"
 		]
-		
-		var id_card = false;
-		var flag = true;
-		var key = 0;
 	</script>
 </body>
 </html>

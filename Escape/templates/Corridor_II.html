@@ -29,7 +29,14 @@
     					'\n(請以 「move X」 為格式, 進行該動作。' +
     					'\n例子: move 1 )');
     			}
-    			else{
+				else if(arg === 'act'){
+    				act_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「act X」 為格式, 進行該動作。' +
+    					'\n例子: act 1 )');
+    			}
+    			
+				else{
     				show_menu.forEach(i => this.echo(i));
     				this.echo(
     					'請以 「show X」的格式去查看各項動作更多的選項' + 
@@ -80,55 +87,10 @@
 
     		move: function(arg) {
 				if (arg == 1){
-					this.echo(
-						'\n-----------------------------------------' +
-						'\n你走出廁所，往左看到了電梯後相當興奮，想著應該能夠坐電梯到樓下吧！' +
-						'\n同時發現電梯旁有個本來應該是樓梯的地方。' +
-						'\n-----------------------------------------');
-					
-					window.setTimeout(function(){
-        					// Move to a new location or you can do something else
-       						document.location.href="../Y29ycmlkb3JfaQ==/"; 
-    					}, 5000);
+					document.location.href="../Y29ycmlkb3JfaQ==/"; 
 				}
 				else if(arg == 4){ 
-					if(key == 1){
-						this.echo(
-							'\n-----------------------------------------' +
-							'\n走到系辦門口，想試著推開，卻發現大門被鎖了起來' +
-							'\n拿手機一照發現門口上似乎用了特殊的墨水，用光照射才會顯示文字' +
-							'\n「回想當初，這是你的起點。」' +
-							'\n-----------------------------------------'
-						)
-						window.setTimeout(function(){
-        					// Move to a new location or you can do something else
-       						document.location.href="../ZGVwYXJ0bWVudF9vZmZpY2U=/"; 
-    					}, 5000);
-					}
-					else{
-						this.echo(
-							'\n-----------------------------------------' +
-							'\n走到系辦門口，想試著推開，卻發現大門被鎖了起來' +
-							'\n拿手機一照發現門口上似乎用了特殊的墨水，用光照射才會顯示文字' +
-							'\n「回想當初，這是你的起點。」' +
-							'\n-----------------------------------------' +
-							'\n-----------------------------------------' +
-							'\n用找到的鑰匙打開了大門後，你走了進去' +
-							'\n光往前一照，突然發現在辦公桌後方有著類似人的形狀，讓你嚇了一跳。' +
-							'\n仔細一看…那是兩個用紙做的人形，呈現一種正襟危坐的樣子放在椅子上' +
-							'\n原本應該是五官的部分分別寫著「童」、「靜」' +
-							'\n「這是誰的惡作劇？」你不免皺眉思考' +
-							'\n靠近辦公桌，發現電腦上似乎正開著網頁(一個題目)' +
-							'\n題目網址放置處' +
-							'\n此時你的手機一震' +
-							'\n「What is your answer?」' +
-							'\n-----------------------------------------'
-						)
-						window.setTimeout(function(){
-        					// Move to a new location or you can do something else
-       						document.location.href="../ZGVwYXJ0bWVudF9vZmZpY2U=/"; 
-    					}, 5000);
-					}
+					document.location.href="../Y29ycmlkb3JfaQ==/"; 
 				}
 				else{
     				this.echo(
@@ -152,6 +114,7 @@
 		var show_menu = [
 			"[look]", 
 			"[move]",
+			"[act]"
 			];
 
 		var look_menu = [
@@ -164,6 +127,9 @@
 			"[3] 5A",
 			"[4] 系辦"
 		];
+		var act_menu = [
+			"目前沒有什麼動作可以執行。"
+		]
 		
 		var id_card = false;
 		var flag = true;

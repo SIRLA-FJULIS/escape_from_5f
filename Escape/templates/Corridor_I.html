@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>走廊一 Corridor I</title>
+	<title>走廊一</title>
 	<meta charset="utf-8">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
@@ -19,20 +19,11 @@
     		
     			if(arg === 'look'){
     				look_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 「look X」 為格式, 進行該動作。'
-    					);
     			}
     			else if(arg === 'move'){
     				move_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 「move X」 為格式, 進行該動作。'
-    					);
     			}else if(arg === 'act'){
     				act_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 act X」 為格式, 進行該動作。'
-    					);
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
@@ -95,7 +86,7 @@
 		
 		//-------------------data-------------------------//
 		var show_menu = [
-			"[act] 進行動作",
+			"[act]  進行動作",
 			"[look] 觀察當前場所", 
 			"[move] 移動到別的場景"
 			];

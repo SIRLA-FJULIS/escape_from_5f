@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>系辦 Department Office</title>
+	<title>系辦</title>
 	<meta charset="utf-8">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
@@ -14,11 +14,12 @@
 		var text = '\n-----------------------------------------' +
 			'\n走到系辦門口，想試著推開，卻發現大門被鎖了起來' +
 			'\n拿手機一照發現門口上似乎用了特殊的墨水，用光照射才會顯示文字' +
-			'\n「回想當初，這是你的起點。」(鑰匙在廁所)' +
+			'\n「回想當初，這是你的起點。」' +
 			'\n-----------------------------------------'
 		key = 0
 		if(key == 1){
-			text = '\n-----------------------------------------' +
+			text = text + 
+			'\n-----------------------------------------' +
 			'\n用找到的鑰匙打開了大門後，你走了進去' +
 			'\n光往前一照，突然發現在辦公桌後方有著類似人的形狀，讓你嚇了一跳。' +
 			'\n仔細一看…那是兩個用紙做的人形，呈現一種正襟危坐的樣子放在椅子上' +
@@ -40,20 +41,11 @@
     		
     			if(arg === 'look'){
     				look_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 「look X」 為格式, 進行該動作。'
-    					);
     			}
     			else if(arg === 'move'){
     				move_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 「move X」 為格式, 進行該動作。'
-    					);
     			}else if(arg === 'act'){
     				act_menu.forEach(i => this.echo(i));
-    				this.echo(
-    					'\n(請以 act X」 為格式, 進行該動作。'
-    					);
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
@@ -92,7 +84,7 @@
 		
 		//-------------------data-------------------------//
 		var show_menu = [
-			"[act] 進行動作",
+			"[act]  進行動作",
 			"[look] 觀察當前場所", 
 			"[move] 移動到別的場景"
 			];

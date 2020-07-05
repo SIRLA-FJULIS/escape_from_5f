@@ -40,38 +40,6 @@
 				this.echo('\n-----------------------------------');
     		},
 
-			action: function(arg) {
-    			
-    			if(arg == 1){
-	    			if (key == 1){
-	    				this.echo(
-							"\n-----------------------------------------" +
-							"\n[1]打開系辦" +
-							'\n用找到的鑰匙打開了大門後，你走了進去' +
-						    '\n光往前一照，突然發現在辦公桌後方有著類似人的形狀，讓你嚇了一跳。' +
-						    '\n仔細一看…那是兩個用紙做的人形，呈現一種正襟危坐的樣子放在椅子上' +
-						    '\n原本應該是五官的部分分別寫著「童」、「靜」' +
-						    '\n「這是誰的惡作劇？」你不免皺眉思考' +
-						    '\n靠近辦公桌，發現電腦上似乎正開著網頁(一個題目)' +
-						    '\n192.168.43.159:8000/department_office/lins_index.html' +
-						    '\n此時你的手機一震' +
-						    '\n「What is your answer?」' +
-							'\n-----------------------------------------' );
-	    			}
-	    			else {
-	    				this.echo(
-							"\n-----------------------------------------" +
-							"\n沒有該動作，請使用 「show action」 查看選項。" +
-							'\n-----------------------------------------' );
-	    			}
-	    		}
-	    		else{
-	    			this.echo('\n沒有該動作，請使用 「show action 查看選項。')
-
-	    		}
-
-    		},
-
     		move: function(arg) {
 				if (arg == 1){
 					this.echo(
@@ -81,7 +49,10 @@
 						'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
 						'\n-----------------------------------------');
 					//移動到走廊二
-					document.location.href="https://www.google.com";
+					window.setTimeout(function(){
+        					// Move to a new location or you can do something else
+       						document.location.href="../Y29ycmlkb3JfaWk=/"; 
+    					}, 5000);
 				}
 				else {
     				this.echo(
@@ -104,12 +75,7 @@
 		//-------------------data-------------------------//
 		var show_menu = [
 			"[move]"
-			"[action]"
 			];
-
-		var act_menu = [
-			"[1] 打開系辦"
-		];
 
 		var move_menu = [
 			"[1] 走廊II",

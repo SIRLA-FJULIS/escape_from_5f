@@ -13,4 +13,4 @@ urlpatterns = [
     path('ZGVwYXJ0bWVudF9vZmZpY2U=/',Department_office), #ZGVwYXJ0bWVudF9vZmZpY2U=
     path('dG9pbGV0/',Toilet), #dG9pbGV0
     path('session/',session)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

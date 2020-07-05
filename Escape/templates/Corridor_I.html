@@ -20,25 +20,24 @@
     			if(arg === 'look'){
     				look_menu.forEach(i => this.echo(i));
     				this.echo(
-    					'\n(請以 「look X」 為格式, 進行該動作。' +
-    					'\n例子: look 1 )');
+    					'\n(請以 「look X」 為格式, 進行該動作。'
+    					);
     			}
     			else if(arg === 'move'){
     				move_menu.forEach(i => this.echo(i));
     				this.echo(
-    					'\n(請以 「move X」 為格式, 進行該動作。' +
-    					'\n例子: move 1 )');
+    					'\n(請以 「move X」 為格式, 進行該動作。'
+    					);
     			}else if(arg === 'act'){
     				act_menu.forEach(i => this.echo(i));
     				this.echo(
-    					'\n(請以 act X」 為格式, 進行該動作。' +
-    					'\n例子: act 1 )');
+    					'\n(請以 act X」 為格式, 進行該動作。'
+    					);
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
     				this.echo(
-    					'請以 「show X」的格式去查看各項動作更多的選項' + 
-    					'\n例子: show act'
+    					'請以 「show X」的格式去查看各項動作更多的選項'
 					);
 				}
 				this.echo('\n-----------------------------------');
@@ -61,7 +60,7 @@
 				else {
     				this.echo(
 						"\n-----------------------------------------" +
-						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						"\n沒有該動作。" +
 						'\n-----------------------------------------' );
     			}
     		},
@@ -80,7 +79,7 @@
 				else {
     				this.echo(
 						"\n-----------------------------------------" +
-						"\n沒有該動作，請使用 「show move」 查看選項。" +
+						"\n沒有該動作。" +
 						'\n-----------------------------------------' );
     			}
     		}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Escape_story',
+    'django.contrib.sessions',
 ]
 
 MIDDLEWARE = [

@@ -6,15 +6,14 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
-	<script src="./js/session.js"></script>
+	<script src=".\js\session.js"></script>
 </head>
 <body>
 <script>
 
 //------------DEMO------------------------------
-		var id_card = Session.get(id_card);
-		var flag = Session.get(flag);
-		var key = Session.get(key);
+		var id_card = Session.get('id_card');
+		var key = Session.get('key');
 
 
 		$('body').terminal(
@@ -70,7 +69,7 @@
 							'\n...'+
 							'\n-----------------------------------------' );
     				}
-					else if (flag == true){
+					else if (flag == True){
 						this.echo(
 							'\n-----------------------------------------' +
 							'\n「啪」的一聲，學生證不再黏在佈告欄上，直直地掉落到地板上。' +

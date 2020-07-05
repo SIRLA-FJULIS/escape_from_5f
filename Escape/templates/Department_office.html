@@ -46,11 +46,16 @@
     					'\n(請以 「move X」 為格式, 進行該動作。' +
     					'\n例子: move 1 )');
     			}
-    			else if(arg === 'action'){
+    			else if(arg === 'look'){
+    				look_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「look X」 為格式, 進行該動作。' +
+    					'\n例子: look 1 )');
+    			}else if(arg === 'act'){
     				act_menu.forEach(i => this.echo(i));
     				this.echo(
-    					'\n(請以 「action X」 為格式, 進行該動作。' +
-    					'\n例子: action 1 )');
+    					'\n(請以 act X」 為格式, 進行該動作。' +
+    					'\n例子: act 1 )');
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
@@ -76,19 +81,27 @@
     	},	
 		{
     		greetings:
-				"\n-----------------------------------------" +
-				"\n沒有該動作，請使用 「show look」 查看選項。" +
-				'\n-----------------------------------------' );
+				"\n-----------------------------------------"
 		}
 		);
 		
 		//-------------------data-------------------------//
 		var show_menu = [
-			"[move]"
+			"[act] 進行動作",
+			"[look] 觀察當前場所", 
+			"[move] 移動到別的場景"
 			];
 
 		var move_menu = [
 			"[1] 走廊 II",
+		];
+
+		var act_menu = [
+			"目前沒有什麼動作可以進行。"
+		];
+
+		var look_menu = [
+			"目前沒有什麼東西可以觀察。"
 		];
 	</script>
 </body>

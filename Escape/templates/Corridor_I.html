@@ -28,12 +28,17 @@
     				this.echo(
     					'\n(請以 「move X」 為格式, 進行該動作。' +
     					'\n例子: move 1 )');
+    			}else if(arg === 'act'){
+    				act_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 act X」 為格式, 進行該動作。' +
+    					'\n例子: act 1 )');
     			}
     			else{
     				show_menu.forEach(i => this.echo(i));
     				this.echo(
     					'請以 「show X」的格式去查看各項動作更多的選項' + 
-    					'\n例子: show action'
+    					'\n例子: show act'
 					);
 				}
 				this.echo('\n-----------------------------------');
@@ -59,6 +64,10 @@
 						"\n沒有該動作，請使用 「show look」 查看選項。" +
 						'\n-----------------------------------------' );
     			}
+    		},
+
+    		action: function(arg) {
+    			this.echo('\n目前沒有什麼動作可以進行。')
     		},
 
     		move: function(arg) {
@@ -87,10 +96,14 @@
 		
 		//-------------------data-------------------------//
 		var show_menu = [
-			"[look]", 
-			"[move]"
+			"[act] 進行動作",
+			"[look] 觀察當前場所", 
+			"[move] 移動到別的場景"
 			];
 
+		var act_menu = [
+			"目前沒有什麼動作可以進行。"
+		];
 
 		var look_menu = [
 			"[1] 電梯",
@@ -100,7 +113,6 @@
 		var move_menu = [
 			"[1] 走廊 II",
 			"[2] 廁所"
-
 		];
 
 	

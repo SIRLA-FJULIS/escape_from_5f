@@ -1,9 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>走廊一 Corridor I</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
 </head>
 <body>
-	<h1>this is Corridor II</h1>
+<script>
+
+//------------DEMO------------------------------
+
+		$('body').terminal(
+		{
+    		show: function(arg) {
+    			this.echo('\n-----------------------------------');
+    		
+    			if(arg === 'look'){
+    				look_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「look X」 為格式, 進行該動作。' +
+    					'\n例子: look 1 )');
+    			}
+    			else if(arg === 'move'){
+    				move_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'\n(請以 「move X」 為格式, 進行該動作。' +
+    					'\n例子: move 1 )');
+    			}
+    			else{
+    				show_menu.forEach(i => this.echo(i));
+    				this.echo(
+    					'請以 「show X」的格式去查看各項動作更多的選項' + 
+    					'\n例子: show action'
+					);
+				}
+				this.echo('\n-----------------------------------');
+    		},
+
+    		look: function(arg) {
+				if (arg == 1){
+					this.echo(
+						'\n-----------------------------------------' +
+				    	'\n按了電梯卻發現完全沒反應。' +
+				    	'\n-----------------------------------------');
+				}
+				else if(arg == 2){
+					this.echo(
+						'\n-----------------------------------------' +
+				    	'\n樓梯被一堆障礙物封了起來。' +
+				    	'\n你用手機燈光照出去，發現仍舊一片漆黑。' +
+				    	'\n-----------------------------------------');
+				}
+				else {
+    				this.echo(
+						"\n-----------------------------------------" +
+						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						'\n-----------------------------------------' );
+    			}
+    		},
+
+    		move: function(arg) {
+				if (arg == 2){
+					this.echo(
+						'\n-----------------------------------------' +
+						'\n回到最初醒來的起點，周圍也沒看到什麼特別的。' +
+						'\n用手機照到廁所隔間的門，上頭赫然是大大的幾個字，寫著：「你以為…你…逃得掉嗎…」' +
+						'\n-----------------------------------------');
+					//移動到廁所
+					window.setTimeout(function(){
+        					// Move to a new location or you can do something else
+       						document.location.href="../dG9pbGV0/"; 
+    					}, 5000);
+				}
+				else if(arg == 1){
+					this.echo(
+						'\n-----------------------------------------' +
+						'\n環視了一下，有一個佈告欄，佈告欄上似乎曾經貼著什麼。' +
+						'\n再看到旁邊的牆上寫著「你記得嗎？你是誰？」' +
+						'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
+						'\n-----------------------------------------');
+					//移動到走廊二
+					window.setTimeout(function(){
+        					// Move to a new location or you can do something else
+       						document.location.href="../Y29ycmlkb3JfaWk=/"; 
+    					}, 5000);
+				}
+				else {
+    				this.echo(
+						"\n-----------------------------------------" +
+						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						'\n-----------------------------------------' );
+    			}
+    		}
+    	},	
+		{
+    		greetings:
+    			'\n-----------------------------------------' +
+	    		'\n你走出廁所，往左看到了電梯後相當興奮，想著應該能夠坐電梯到樓下吧！' +
+			    '\n同時發現電梯旁有個本來應該是樓梯的地方。，' +
+			    '\n-----------------------------------------'
+		}
+		);
+		
+		//-------------------data-------------------------//
+		var show_menu = [
+			"[look]", 
+			"[move]"
+			];
+
+		var look_menu = [
+			"[1]電梯",
+			"[2]樓梯"
+		];	
+
+		var move_menu = [
+			"[1] 走廊II",
+			"[2] 廁所"
+
+		];
+	</script>
 </body>
 </html>

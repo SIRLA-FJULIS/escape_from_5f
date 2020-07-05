@@ -63,34 +63,15 @@
 
     		move: function(arg) {
 				if (arg == 2){
-					this.echo(
-						'\n-----------------------------------------' +
-						'\n回到最初醒來的起點，周圍也沒看到什麼特別的。' +
-						'\n用手機照到廁所隔間的門，上頭赫然是大大的幾個字，寫著：「你以為…你…逃得掉嗎…」' +
-						'\n-----------------------------------------');
-					//移動到廁所
-					window.setTimeout(function(){
-        					// Move to a new location or you can do something else
-       						document.location.href="../dG9pbGV0/"; 
-    					}, 5000);
+       				document.location.href="../dG9pbGV0/"; 
 				}
 				else if(arg == 1){
-					this.echo(
-						'\n-----------------------------------------' +
-						'\n環視了一下，有一個佈告欄，佈告欄上似乎曾經貼著什麼。' +
-						'\n再看到旁邊的牆上寫著「你記得嗎？你是誰？」' +
-						'\n「我當然記得，我是…我是…我是誰？」你突然發現自己完全不記得自己的身份。' +
-						'\n-----------------------------------------');
-					//移動到走廊二
-					window.setTimeout(function(){
-        					// Move to a new location or you can do something else
-       						document.location.href="../Y29ycmlkb3JfaWk=/"; 
-    					}, 5000);
+					document.location.href="../Y29ycmlkb3JfaWk=/"; 
 				}
 				else {
     				this.echo(
 						"\n-----------------------------------------" +
-						"\n沒有該動作，請使用 「show look」 查看選項。" +
+						"\n沒有該動作，請使用 「show move」 查看選項。" +
 						'\n-----------------------------------------' );
     			}
     		}
@@ -112,8 +93,8 @@
 
 
 		var look_menu = [
-			"[1]電梯",
-			"[2]樓梯"
+			"[1] 電梯",
+			"[2] 樓梯"
 		];	
 
 		var move_menu = [

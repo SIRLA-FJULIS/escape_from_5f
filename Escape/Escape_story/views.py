@@ -18,6 +18,3 @@ def Department_office(request):
 
 def Five_A(request):
     return render(request,'5A.html')
-
-def session(request):
-    return render(request,'session.js')
